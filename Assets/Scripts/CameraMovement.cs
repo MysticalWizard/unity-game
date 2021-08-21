@@ -7,37 +7,58 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private Camera cam;
 
-    private Vector3 camInitialPosition;
+    public float panSpeed = 5f;
+    public Vector2 panLimit;
+    public float scrollSpeed = 2f;
 
+    private Vector3 camInitialPosition;
 
     private void Update()
     {
-        MoveCamera();
+        GetBaseInput();
     }
 
-    private void MoveCamera()
+    private void GetBaseInput()
     {
+        Vector3 pos = transform.position;
+
         if(Input.GetMouseButtonDown(0))
-            camInitialPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            pos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         if(Input.GetMouseButton(0))
         {
-            Vector3 camDragDistance = camInitialPosition - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position += camDragDistance;
+            Vector3 camPos = camInitialPosition - cam.ScreenToWorldPoint(Input.mousePosition);
+            cam.transform.position += camPos;
         }
-        if(Input.GetKey (KeyCode.W)){
-            cam.transform.position += new Vector3(0, 0 , 1);
+
+        if(Input.GetKey(KeyCode.W))
+        {
+            pos.y += panSpeed * Time.deltaTime;
         }
-        if(Input.GetKey (KeyCode.S)){
-            cam.transform.position += new Vector3(0, 0, -1);
+
+        if(Input.GetKey(KeyCode.S))
+        {
+            pos.y -= panSpeed * Time.deltaTime;
         }
-        if(Input.GetKey (KeyCode.A)){
-            cam.transform.position += new Vector3(-1, 0, 0);
+
+        if(Input.GetKey(KeyCode.D))
+        {
+            pos.x += panSpeed * Time.deltaTime;
         }
-        if(Input.GetKey (KeyCode.D)){
-            cam.transform.position += new Vector3(1, 0, 0);
+
+        if(Input.GetKey(KeyCode.A))
+        {
+            pos.x -= panSpeed * Time.deltaTime;
         }
-        // return cam.transform.position;
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        cam.orthographicSize += scroll * scrollSpeed * 2 * Time.deltaTime;
+        if(cam.orthographicSize!>0)
+        
+        pos.y = Mathf.Clamp(pos.y, -panLimit.x, panLimit.x);
+        pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
+
+        transform.position = pos;
     }
     
 }
