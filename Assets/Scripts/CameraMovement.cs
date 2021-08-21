@@ -13,20 +13,21 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 camInitialPosition;
 
+
+
     private void Update()
     {
         DragOffset();
         GetBaseInput();
     }
+
     private void DragOffset()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
+    {   
+        if(Input.GetMouseButtonDown(0)){
             camInitialPosition = cam.ScreenToWorldPoint(Input.mousePosition);
         }
 
-        if(Input.GetMouseButton(0))
-        {
+        if(Input.GetMouseButton(0)){
             Vector3 camDragDistance = camInitialPosition - cam.ScreenToWorldPoint(Input.mousePosition);
             transform.position += camDragDistance;
         }
