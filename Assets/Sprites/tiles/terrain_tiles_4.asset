@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: terrain_tileset_5
+  m_Name: terrain_tiles_4
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -7886867450707486878, guid: 20bcbecbf21cc493cba7059bd976b7c5, type: 3}
+  m_Sprite: {fileID: 6501780572968073555, guid: 147ae806173414530bd130723816d33f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
