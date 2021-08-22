@@ -70,7 +70,7 @@ public class CameraMovement : MonoBehaviour
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        cam.orthographicSize += scroll * scrollSpeed * 2 * Time.deltaTime;
+        cam.orthographicSize -= scroll * scrollSpeed * 10 * Time.deltaTime;
         if(cam.orthographicSize<1)
         {
             cam.orthographicSize = 1;
