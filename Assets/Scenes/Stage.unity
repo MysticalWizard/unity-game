@@ -2529,7 +2529,7 @@ GameObject:
   - component: {fileID: 1134010412}
   - component: {fileID: 1134010416}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PauseOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
