@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueObject : MonoBehaviour
+[CreateAssetMenu(menuName = "Dialogue/DialogueObject")]
+public class DialogueObject : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] [TextArea] private string[] dialogue;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string[] Dialogue => dialogue;
 }

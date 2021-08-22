@@ -556,6 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textLabel: {fileID: 1459458302}
+  testDialogue: {fileID: 11400000, guid: 5d8333cabfab6426389236756d2f5fe0, type: 2}
 --- !u!114 &2146969165
 MonoBehaviour:
   m_ObjectHideFlags: 0
