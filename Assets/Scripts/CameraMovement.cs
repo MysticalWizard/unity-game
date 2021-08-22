@@ -12,37 +12,32 @@ public class CameraMovement : MonoBehaviour
     public float scrollSpeed = 2f;
 
     private Vector3 camInitialPosition;
-    private bool _a;
-    private bool _allowMove;
-    private bool _allowCam = Dragndrop._camMoveAllow;
-
-    private void Update()
-    {
-        if (_camMoveAllow = true)
-        {
-            DragOffset();
-            GetBaseInput();
-        }
-
-    }
-
-    // public void updateCamStatus(bool _allowCam){
-    //     _allowMove = _allowCam;
-    // }
-
 
     private void DragOffset()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            camInitialPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        }
+        isDragging
+    }
 
-        if(Input.GetMouseButton(0))
-        {
-            Vector3 camDragDistance = camInitialPosition - cam.ScreenToWorldPoint(Input.mousePosition);
-            transform.position += camDragDistance;
-        }
+
+
+    private bool isDragging;
+
+    public void OnMouseDown()
+    {
+        isDragging = true;
+        Debug.Log("Mouse down");
+    }
+
+    public void OnMouseUp()
+    {
+        isDragging = false;
+        Debug.Log("Mouse up");
+    }
+
+    void Update()
+    {
+        DragOffset();
+        GetBaseInput();
     }
 
     private void GetBaseInput()
