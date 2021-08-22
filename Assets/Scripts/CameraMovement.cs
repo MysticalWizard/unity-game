@@ -67,8 +67,8 @@ public class CameraMovement : MonoBehaviour
             cam.orthographicSize = 10;
         }
         
-        pos.y = Mathf.Clamp(pos.y, -panLimit.x, panLimit.x);
-        pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
+        pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
+        pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
 
         transform.position = pos;
     }

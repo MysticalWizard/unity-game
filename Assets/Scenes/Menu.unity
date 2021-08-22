@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9e0fa93ab804152a65667d773fa756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Stage
+  firstLevel: Stage copy 2
 --- !u!1 &1792240008
 GameObject:
   m_ObjectHideFlags: 0
