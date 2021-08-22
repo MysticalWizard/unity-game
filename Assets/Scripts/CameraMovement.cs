@@ -13,42 +13,29 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 camInitialPosition;
 
-    private void DragOffset()
+    private void Update()
     {
-        // if (_camMoveAllow = true)
-        // {
-        DragOffset();
-        GetBaseInput();
-
-
-    }
-
-
-
-    private bool isDragging;
-
-    public void OnMouseDown()
-    {
-        isDragging = true;
-        Debug.Log("Mouse down");
-    }
-
-    public void OnMouseUp()
-    {
-        isDragging = false;
-        Debug.Log("Mouse up");
-    }
-
-    void Update()
-    {
-        DragOffset();
+        // DragOffset();
         GetBaseInput();
     }
+    // private void DragOffset()
+    // {
+    //     if(Input.GetMouseButtonDown(0))
+    //     {
+    //         camInitialPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+    //     }
+
+    //     if(Input.GetMouseButton(0))
+    //     {
+    //         Vector3 camDragDistance = camInitialPosition - cam.ScreenToWorldPoint(Input.mousePosition);
+    //         transform.position += camDragDistance;
+    //     }
+    // }
 
     private void GetBaseInput()
     {
         Vector3 pos = transform.position;
-
+        
         if(Input.GetKey(KeyCode.W))
         {
             pos.y += panSpeed * Time.deltaTime;
@@ -60,7 +47,7 @@ public class CameraMovement : MonoBehaviour
         }
 
         if(Input.GetKey(KeyCode.D))
-        {
+        {    
             pos.x += panSpeed * Time.deltaTime;
         }
 
@@ -70,7 +57,7 @@ public class CameraMovement : MonoBehaviour
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        cam.orthographicSize -= scroll * scrollSpeed * 10 * Time.deltaTime;
+        cam.orthographicSize += scroll * scrollSpeed * 2 * Time.deltaTime;
         if(cam.orthographicSize<1)
         {
             cam.orthographicSize = 1;
@@ -79,11 +66,11 @@ public class CameraMovement : MonoBehaviour
         {
             cam.orthographicSize = 10;
         }
-
+        
         pos.y = Mathf.Clamp(pos.y, -panLimit.x, panLimit.x);
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
 
         transform.position = pos;
     }
-
+    
 }
