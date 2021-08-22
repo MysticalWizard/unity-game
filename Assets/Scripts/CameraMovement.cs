@@ -18,11 +18,11 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        if (_camMoveAllow = true)
-        {
-            DragOffset();
-            GetBaseInput();
-        }
+        // if (_camMoveAllow = true)
+        // {
+        DragOffset();
+        GetBaseInput();
+        
 
     }
 

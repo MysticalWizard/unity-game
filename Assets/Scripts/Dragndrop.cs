@@ -21,8 +21,8 @@ public class Dragndrop : MonoBehaviour
 
     void OnMouseDrag() {
         transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset,_speed*Time.deltaTime );
-        bool _camMoveAllow = false;
-        _camMove.updateCamStatus(_camMoveAllow);
+        // bool _camMoveAllow = false;
+        // _camMove.updateCamStatus(_camMoveAllow);
     }
 
     Vector3 GetMousePos(){
