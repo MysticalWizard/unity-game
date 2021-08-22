@@ -12,12 +12,25 @@ public class CameraMovement : MonoBehaviour
     public float scrollSpeed = 2f;
 
     private Vector3 camInitialPosition;
+    private bool _a;
+    private bool _allowMove;
+    private bool _allowCam = Dragndrop._camMoveAllow;
 
     private void Update()
     {
-        DragOffset();
-        GetBaseInput();
+        if (_camMoveAllow = true)
+        {
+            DragOffset();
+            GetBaseInput();
+        }
+
     }
+
+    // public void updateCamStatus(bool _allowCam){
+    //     _allowMove = _allowCam;
+    // }
+
+
     private void DragOffset()
     {
         if(Input.GetMouseButtonDown(0))
@@ -35,7 +48,7 @@ public class CameraMovement : MonoBehaviour
     private void GetBaseInput()
     {
         Vector3 pos = transform.position;
-        
+
         if(Input.GetKey(KeyCode.W))
         {
             pos.y += panSpeed * Time.deltaTime;
@@ -47,7 +60,7 @@ public class CameraMovement : MonoBehaviour
         }
 
         if(Input.GetKey(KeyCode.D))
-        {    
+        {
             pos.x += panSpeed * Time.deltaTime;
         }
 
@@ -66,11 +79,11 @@ public class CameraMovement : MonoBehaviour
         {
             cam.orthographicSize = 10;
         }
-        
+
         pos.y = Mathf.Clamp(pos.y, -panLimit.x, panLimit.x);
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
 
         transform.position = pos;
     }
-    
+
 }
