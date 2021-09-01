@@ -7,6 +7,13 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private Camera cam;
 
+    private AudioSource source;
+
+    void start(){
+        source = GetComponent<AudioSource>();
+        source.Play();
+    }
+
     public float panSpeed = 5f;
     public Vector2 panLimit;
     public float scrollSpeed = 2f;

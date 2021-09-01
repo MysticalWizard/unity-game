@@ -185,7 +185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game 100
+  m_text: 2050
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fb6eb7eb8cc33436d869f883d5325773, type: 2}
   m_sharedMaterial: {fileID: -5037518167986677598, guid: fb6eb7eb8cc33436d869f883d5325773, type: 2}
